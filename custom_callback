@@ -1,0 +1,9 @@
+class CustomTimingCallback(Callback):
+    def on_train_start(self, trainer, lightning_module):
+        self.start = time.time()
+        print("Training is starting")
+    
+    def on_train_end(self, trainer, lightning_module): 
+        self.end = time.time()
+        total_minutes = (self.end - self.start)/60
+        print(f"Training has finished. It took {total_minutes} minutes.")
